@@ -1,0 +1,123 @@
+// ignore_for_file: camel_case_types, non_constant_identifier_names, must_be_immutable
+
+import '../cubit/sign_in_cubit/sign_in_states.dart';
+import '../screen/bottom_bar.dart';
+import '../shapes/ticket_logo.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import '../cubit/sign_in_cubit/sign_in_cubit.dart';
+import '../widget/components.dart';
+
+class Sign_In extends StatelessWidget {
+  Sign_In({super.key});
+
+  static const String routeName = 'Sign_in';
+  var NationalIDController = TextEditingController();
+  var PasswordController = TextEditingController();
+  var formKey = GlobalKey<FormState>();
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () => FocusScope.of(context).unfocus(),
+      child: SafeArea(
+        child: BlocProvider(
+          create: (BuildContext context) => SignInCubit(),
+          child: BlocConsumer<SignInCubit, SignInStates>(
+            listener: (context, state) {},
+            builder: (context, state) {
+              return Scaffold(
+               
+                body: Center(
+                  child: Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 20.w),
+                    child: SingleChildScrollView(
+                      child: Form(
+                        key: formKey,
+                        child: Column(children: [
+                          Transform.rotate(
+                            angle: 44.75,
+                            child: logoTicket,
+                          ),
+                          SizedBox(
+                            height: 80.h,
+                          ),
+                          DefaultFormField(
+                            prefixIcon: Padding(
+                              padding: EdgeInsetsDirectional.only(
+                                  start: 10.w, end: 10.w),
+                              child: Icon(
+                                Icons.account_circle,
+                               
+                                size: 30.h,
+                              ),
+                            ),
+                            label: 'National ID',
+                            keyboardType: TextInputType.number,
+                            validate: (String? value) {
+                              return null;
+                            },
+                            controller: NationalIDController,
+                          ),
+                          SizedBox(
+                            height: 20.h,
+                          ),
+                          DefaultFormField(
+                            isPassword: SignInCubit.get(context).isPassword,
+                            prefixIcon: Padding(
+                              padding: EdgeInsetsDirectional.only(
+                                  start: 10.w, end: 10.w),
+                              child: Icon(
+                                Icons.lock_outline,
+                                size: 30.h,
+                              ),
+                            ),
+                            suffixIcon: SignInCubit.get(context).suffix,
+                            suffixPressed: () {
+                              SignInCubit.get(context).showPassword();
+                            },
+                            label: 'Password',
+                            keyboardType: TextInputType.text,
+                            validate: (String? value) {
+                              return null;
+                            },
+                            controller: PasswordController,
+                          ),
+                          SizedBox(
+                            height: 10.h,
+                          ),
+                          DefaultButtom(
+                            OnTap: () {
+                             /*  Navigator.pushNamed(
+                                context, BottomBar.routeName
+                                ); */
+                            },
+                            Child: Text(
+                              'Log In',
+                              style: TextStyle(
+                                fontSize: 28.sp,
+                                color: Colors.white,
+                                fontWeight: FontWeight.w600,
+                              ),
+                            ),
+                            Height: 43,
+                            Width: double.infinity,
+                            PaddingHorizontal: 30,
+                            PaddingVertical: 0,
+                            radius: 15,
+                          ),
+                        ]),
+                      ),
+                    ),
+                  ),
+                ),
+              );
+            },
+          ),
+        ),
+      ),
+    );
+  }
+}
