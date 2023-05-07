@@ -1,3 +1,5 @@
+// ignore_for_file: unused_import
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'bloc_observer.dart';
@@ -23,7 +25,7 @@ WidgetsFlutterBinding.ensureInitialized();
       providers: [
         BlocProvider(create:(coontext) => ThemeCubit(),)
         ],
-       child: MyApp()
+       child: const MyApp()
        ),
     
      );
@@ -31,7 +33,7 @@ WidgetsFlutterBinding.ensureInitialized();
 }
 
 class MyApp extends StatelessWidget {
-   MyApp({super.key});
+   const MyApp({super.key});
    
 
   @override

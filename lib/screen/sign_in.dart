@@ -1,4 +1,4 @@
-// ignore_for_file: camel_case_types, non_constant_identifier_names, must_be_immutable
+// ignore_for_file: camel_case_types, non_constant_identifier_names, must_be_immutable, unused_import
 
 import '../cubit/sign_in_cubit/sign_in_states.dart';
 import '../screen/bottom_bar.dart';

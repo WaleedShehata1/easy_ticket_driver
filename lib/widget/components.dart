@@ -99,7 +99,7 @@ class DefaultFormField extends StatelessWidget {
                 onPressed: () {
                   suffixPressed!();
                 },
-                icon:  Icon(Icons.remove_red_eye_outlined,))
+                icon:  const Icon(Icons.remove_red_eye_outlined,))
             : null,
     
         focusedBorder: OutlineInputBorder(
@@ -118,11 +118,11 @@ class DefaultFormField extends StatelessWidget {
         ),
          focusedErrorBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(radius??20.r),
-                    borderSide: BorderSide(width: 2.0, color: Colors.red),
+                    borderSide: const BorderSide(width: 2.0, color: Colors.red),
                   ),
                   errorBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(radius??20.r),
-                    borderSide: BorderSide(width: 2.0, color: Colors.red),
+                    borderSide: const BorderSide(width: 2.0, color: Colors.red),
                   ),
       ),
     );

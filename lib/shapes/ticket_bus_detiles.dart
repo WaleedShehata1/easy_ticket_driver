@@ -173,7 +173,7 @@ class busTicketDetiles extends StatelessWidget {
                         height: 15.h,
                         decoration: BoxDecoration(
                             color: Colors.white,
-                            borderRadius: BorderRadius.only(
+                            borderRadius: const BorderRadius.only(
                                 bottomLeft: Radius.circular(20),
                                 bottomRight: Radius.circular(20)).r),
                       ),
