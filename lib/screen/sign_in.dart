@@ -1,14 +1,16 @@
 // ignore_for_file: camel_case_types, non_constant_identifier_names, must_be_immutable, unused_import
 
-import '../cubit/sign_in_cubit/sign_in_states.dart';
+import '../cubit/sign_in/sign_in_cubit.dart';
+import '../cubit/sign_in/sign_in_states.dart';
 import '../screen/bottom_bar.dart';
 import '../shapes/ticket_logo.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../cubit/sign_in_cubit/sign_in_cubit.dart';
+import '../widget/Buttom.dart';
 import '../widget/components.dart';
+import '../widget/text_Form_Field.dart';
 
 class Sign_In extends StatelessWidget {
   Sign_In({super.key});
@@ -29,7 +31,6 @@ class Sign_In extends StatelessWidget {
             listener: (context, state) {},
             builder: (context, state) {
               return Scaffold(
-               
                 body: Center(
                   child: Padding(
                     padding: EdgeInsets.symmetric(horizontal: 20.w),
@@ -50,7 +51,6 @@ class Sign_In extends StatelessWidget {
                                   start: 10.w, end: 10.w),
                               child: Icon(
                                 Icons.account_circle,
-                               
                                 size: 30.h,
                               ),
                             ),
@@ -76,7 +76,7 @@ class Sign_In extends StatelessWidget {
                             ),
                             suffixIcon: SignInCubit.get(context).suffix,
                             suffixPressed: () {
-                              SignInCubit.get(context).showPassword();
+                              SignInCubit.get(context).showPasswordLogin();
                             },
                             label: 'Password',
                             keyboardType: TextInputType.text,
@@ -90,9 +90,7 @@ class Sign_In extends StatelessWidget {
                           ),
                           DefaultButtom(
                             OnTap: () {
-                             /*  Navigator.pushNamed(
-                                context, BottomBar.routeName
-                                ); */
+                              Navigator.pushNamed(context, BottomBar.routeName);
                             },
                             Child: Text(
                               'Log In',

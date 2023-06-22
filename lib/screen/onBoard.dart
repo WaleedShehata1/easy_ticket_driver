@@ -3,17 +3,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../shapes/shape_GetStart.dart';
+import '../widget/Buttom.dart';
 import '../widget/components.dart';
 import 'sign_in.dart';
 
 class onBoard extends StatelessWidget {
   const onBoard({super.key});
   static const String routeName = 'onBoard';
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-     
       body: Container(
         color: Colors.white,
         child: Center(
@@ -22,12 +21,14 @@ class onBoard extends StatelessWidget {
             children: [
               Column(
                 children: [
-SizedBox(height: 50.h,),
-                  getStartShape,
-                   SizedBox(
-                    height:50.h,
+                  SizedBox(
+                    height: 50.h,
                   ),
-                   Text(
+                  getStartShape,
+                  SizedBox(
+                    height: 50.h,
+                  ),
+                  Text(
                     'Welcome to Easy Ticket',
                     textAlign: TextAlign.center,
                     style: TextStyle(
@@ -38,7 +39,7 @@ SizedBox(height: 50.h,),
                   const SizedBox(
                     height: 10,
                   ),
-                   SizedBox(
+                  SizedBox(
                     width: 340,
                     child: Text(
                       "Quick & Easy to Travel anywhere & anytime",
@@ -53,42 +54,16 @@ SizedBox(height: 50.h,),
                   ),
                 ],
               ),
-              
-      /*                 Container(
-                        height: 65,
-                        width: 300,
-                        decoration: BoxDecoration(
-                          color: PrimaryColour,
-                         borderRadius: BorderRadius.circular(20)),
-                        child: ElevatedButton(
-
-                          onPressed:()
-                                    {
-                                     firstTime.putData(key: 'firstTime', valu: true).then(
-                                      (value) => Navigator.pushReplacementNamed(context, Sign_In.routeName ));
-                                     Navigator.pushReplacementNamed(context, Sign_In.routeName );
-                                    },
-                          child: const Center(
-                            child: Text(
-                                        'Get Started',textAlign: TextAlign.center,
-                                        style:TextStyle(
-                                              color: Colors.white,
-                                              fontSize: 38,
-                                              fontWeight: FontWeight.w600
-                                              ),
-                                              ),
-                          ),
-                        ),
-                      ), */
-               DefaultButtom(
+              DefaultButtom(
                 OnTap: () {
-                 firstTime.putData(key: 'firstTime', valu: true).then(
-                                      (value) => Navigator.pushReplacementNamed(context, Sign_In.routeName ));
-                                     Navigator.pushReplacementNamed(context, Sign_In.routeName );
+                  CacheHelper.putData(key: 'firstTime', value: true).then(
+                      (value) => Navigator.pushReplacementNamed(
+                          context, Sign_In.routeName));
+                  Navigator.pushReplacementNamed(context, Sign_In.routeName);
                 },
                 Child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
-                  children:  [
+                  children: [
                     Text(
                       'Get Started',
                       style: TextStyle(
@@ -112,49 +87,9 @@ SizedBox(height: 50.h,),
                 PaddingHorizontal: 30,
                 PaddingVertical: 30,
               ),
-              SizedBox(height: 10.h,),
-               /* 
-               InkWell(
-
-                splashColor: Colors.blue,
-                borderRadius: const BorderRadius.all(Radius.circular(30)) ,
-                 onTap: () {
-                  Navigator.pushNamed(context, Sign_In.routeName );
-                },
-                 child: Container(
-                   margin: const EdgeInsets.symmetric(vertical: 30,horizontal: 30),
-                   alignment: Alignment.center,
-                   padding: const EdgeInsets.all(10),
-                   width: double.infinity,
-                   
-                   decoration:  BoxDecoration(
-                    borderRadius: const BorderRadius.all(Radius.circular(30)),
-                    color: PrimaryColour,
-                  ),
-                   child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        'get started'.toUpperCase(),
-                        style: const TextStyle(
-                          color: Colors.white,
-                          fontWeight: FontWeight.w700,
-                          fontSize: 30,
-                        ),
-                      ),
-                      const SizedBox(
-                        width: 10,
-                      ),
-                      const Icon(
-                        Icons.arrow_forward_ios_outlined,
-                        size: 30,
-                        weight: 50,
-                        color: Colors.white,
-                      )
-                    ],
-                  ),
-                 ),
-               ), */
+              SizedBox(
+                height: 10.h,
+              ),
             ],
           ),
         ),

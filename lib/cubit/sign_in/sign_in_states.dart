@@ -1,12 +1,16 @@
+import '../../widget/model.dart';
+
 abstract class SignInStates {}
 
+//Login
 class SignInInitialState extends SignInStates {}
+
 class SignInLoadingState extends SignInStates {}
 
 class SignInSuccessState extends SignInStates {
-  final String uid;
+  final SignInModel? loginModel;
 
-  SignInSuccessState(this.uid);
+  SignInSuccessState(this.loginModel);
 }
 
 class SignInErrorState extends SignInStates {

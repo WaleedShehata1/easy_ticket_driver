@@ -10,21 +10,17 @@ import '../widget/components.dart';
 
 class myTicketMetro extends StatelessWidget {
   Function()? onTap;
-  Function()? onTapDelete;
-  Function()? onTapQR;
-
   myTicketMetro({
     Key? key,
     this.onTap,
-    this.onTapDelete,
-    this.onTapQR,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 40.w),
+      padding: EdgeInsets.symmetric(horizontal: 10.w),
       child: Container(
+        width: double.infinity,
         padding: const EdgeInsets.all(10).w,
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(15).r,
@@ -46,7 +42,7 @@ class myTicketMetro extends StatelessWidget {
                   children: [
                     Container(
                       height: 120.h,
-                      width: 155.w,
+                      width: 128.w,
                       decoration: BoxDecoration(
                           borderRadius: const BorderRadius.only(
                                   topLeft: Radius.circular(10),
@@ -67,7 +63,7 @@ class myTicketMetro extends StatelessWidget {
                           ]),
                     ),
                     SizedBox(
-                      width: 26.w,
+                      width: 20.w,
                     ),
                     Container(
                       decoration: BoxDecoration(
@@ -94,8 +90,8 @@ class myTicketMetro extends StatelessWidget {
                   ],
                 ),
                 Container(
-                  width: 270.w,
-                  height: 122.h,
+                  width: 260.w,
+                  height: 120.h,
                   decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(10).r),
@@ -117,7 +113,7 @@ class myTicketMetro extends StatelessWidget {
                               style: TextStyle(
                                   color: Colors.black,
                                   fontWeight: FontWeight.bold,
-                                  fontSize: 20.sp),
+                                  fontSize: 16.sp),
                             ),
                             SizedBox(
                               height: 5.h,
@@ -127,14 +123,14 @@ class myTicketMetro extends StatelessWidget {
                               style: TextStyle(
                                   color: Colors.black,
                                   fontWeight: FontWeight.bold,
-                                  fontSize: 20.sp),
+                                  fontSize: 16.sp),
                             ),
                             SizedBox(
-                              height: 10.h,
+                              height: 5.h,
                             ),
                             Container(
                               alignment: Alignment.center,
-                              width: 65.w,
+                              width: 60.w,
                               height: 40.h,
                               decoration: BoxDecoration(
                                   color: PrimaryColour,
@@ -144,7 +140,7 @@ class myTicketMetro extends StatelessWidget {
                                 style: TextStyle(
                                     color: Colors.white,
                                     fontWeight: FontWeight.w900,
-                                    fontSize: 26.sp),
+                                    fontSize: 24.sp),
                               ),
                             ),
                           ],
@@ -336,7 +332,7 @@ class myTicketMetro extends StatelessWidget {
                         Container(
                           alignment: Alignment.center,
                           height: 30.h,
-                          width: 75.w,
+                          width: 65.w,
                           decoration: BoxDecoration(
                               color: PrimaryColour,
                               borderRadius: BorderRadius.circular(10).r),
@@ -382,27 +378,12 @@ class myTicketMetro extends StatelessWidget {
               children: [
                 DefaultButtom(
                   PaddingVerticalText: 0,
-                  color: Colors.white,
                   Child: Icon(
-                    Icons.delete_outlined,
-                    color: Colors.black,
+                    Icons.check,
+                    color: Colors.white,
                     size: 30.w,
                   ),
-                  OnTap: onTapDelete,
-                  radius: 10,
-                  Height: 40,
-                  Width: 30,
-                  PaddingHorizontal: 0,
-                  PaddingVertical: 15,
-                ),
-                DefaultButtom(
-                  OnTap: onTapQR,
-                  color: Colors.white,
-                  Child: Icon(
-                    Icons.qr_code_2_rounded,
-                    color: Colors.black,
-                    size: 30.w,
-                  ),
+                  OnTap: onTap,
                   radius: 10,
                   Height: 40,
                   Width: 30,
