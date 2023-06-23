@@ -35,7 +35,25 @@ class Sign_In extends StatelessWidget {
           child: BlocConsumer<SignInCubit, SignInStates>(
             listener: (context, state) {
               if (state is SignInSuccessState) {
-                if (state.loginModel!.status == false) {
+                if (state.loginModel!.status == true) {
+                  CacheHelper.saveData(
+                          key: 'token', value: state.loginModel!.token)
+                      .then((value) {
+                    print(state.loginModel!.token);
+                    CacheHelper.saveData(
+                        key: 'id_driver',
+                        value: state.loginModel!.data!.id_driver);
+                    {
+                      navigateAndFinish(
+                        context,
+                        const BottomBar(),
+                      );
+                    }
+                    showToast(
+                        text: state.loginModel!.message!,
+                        state: ToastStates.success);
+                  });
+                } else if (state.loginModel!.status == false) {
                   print(state.loginModel!);
                   print(state.loginModel!.message);
                   showToast(
