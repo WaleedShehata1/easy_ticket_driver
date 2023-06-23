@@ -15,28 +15,26 @@ class SignInModel {
 }
 
 class UserData {
-  String? uid;
+  String? id_driver;
   String? first_Name;
   String? last_Name;
-  String? email;
   String? password;
   UserData.fromJson(Map<String, dynamic> json) {
-    uid = json['id'].toString();
-    email = json['email'];
+    id_driver = json['id_driver'].toString();
     first_Name = json['first_Name'];
     last_Name = json['last_Name'];
   }
 }
 
-class User {
-  String? uid;
-  String? first_Name;
-  String? last_Name;
-  String? email;
-  User(
-      {this.uid,
-      this.first_Name,
-      this.last_Name,
-      this.email,
-      });
-}
+// class User {
+//   String? uid;
+//   String? first_Name;
+//   String? last_Name;
+//   String? email;
+//   User({
+//     this.uid,
+//     this.first_Name,
+//     this.last_Name,
+//     this.email,
+//   });
+// }

@@ -7,7 +7,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../network/local/dio_helper.dart';
 import '../../network/remote/end_points.dart';
 import '../../widget/components.dart';
-import '../../widget/model.dart';
+// import '../../widget/model.dart'
+import '../../models/sign_in_model.dart';
 
 class SignInCubit extends Cubit<SignInStates> {
   SignInCubit() : super(SignInInitialState());
@@ -40,7 +41,7 @@ class SignInCubit extends Cubit<SignInStates> {
       emit(SignInLoadingState());
       print('Value == ${value.data}');
       loginModel = SignInModel.fromJson(value.data);
-      CacheHelper.saveData(key: 'uid', value: loginModel!.data!.uid);
+      CacheHelper.saveData(key: 'uid', value: loginModel!.data!.id_driver);
       print("token=${loginModel!.token}");
       CacheHelper.saveData(
           key: 'userName',

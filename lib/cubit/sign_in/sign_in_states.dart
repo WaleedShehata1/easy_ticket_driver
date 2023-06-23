@@ -1,4 +1,5 @@
-import '../../widget/model.dart';
+// import '../../widget/model.dart';
+import '../../models/sign_in_model.dart';
 
 abstract class SignInStates {}
 

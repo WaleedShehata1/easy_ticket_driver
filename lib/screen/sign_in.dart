@@ -12,11 +12,16 @@ import '../widget/Buttom.dart';
 import '../widget/components.dart';
 import '../widget/text_Form_Field.dart';
 
+import '../cubit/sign_in/sign_in_cubit.dart';
+import '../cubit/sign_in/sign_in_states.dart';
+import '../models/sign_in_model.dart';
+import '../widget/constants.dart';
+
 class Sign_In extends StatelessWidget {
   Sign_In({super.key});
 
   static const String routeName = 'Sign_in';
-  var NationalIDController = TextEditingController();
+  var IDController = TextEditingController();
   var PasswordController = TextEditingController();
   var formKey = GlobalKey<FormState>();
 
@@ -28,7 +33,22 @@ class Sign_In extends StatelessWidget {
         child: BlocProvider(
           create: (BuildContext context) => SignInCubit(),
           child: BlocConsumer<SignInCubit, SignInStates>(
-            listener: (context, state) {},
+            listener: (context, state) {
+              if (state is SignInSuccessState) {
+                if (state.loginModel!.status == false) {
+                  print(state.loginModel!);
+                  print(state.loginModel!.message);
+                  showToast(
+                      text: state.loginModel!.message!,
+                      state: ToastStates.error);
+                } else {
+                  showToast(
+                      text:
+                          'There is a problem connecting to the server or the Internet',
+                      state: ToastStates.warning);
+                }
+              }
+            },
             builder: (context, state) {
               return Scaffold(
                 body: Center(
@@ -54,12 +74,12 @@ class Sign_In extends StatelessWidget {
                                 size: 30.h,
                               ),
                             ),
-                            label: 'National ID',
+                            label: 'ID',
                             keyboardType: TextInputType.number,
                             validate: (String? value) {
                               return null;
                             },
-                            controller: NationalIDController,
+                            controller: IDController,
                           ),
                           SizedBox(
                             height: 20.h,
@@ -90,7 +110,12 @@ class Sign_In extends StatelessWidget {
                           ),
                           DefaultButtom(
                             OnTap: () {
-                              Navigator.pushNamed(context, BottomBar.routeName);
+                              if (formKey.currentState!.validate()) {
+                                SignInCubit.get(context).driverLogin(
+                                    id_driver: IDController.text,
+                                    password: PasswordController.text,
+                                    context: context);
+                              }
                             },
                             Child: Text(
                               'Log In',

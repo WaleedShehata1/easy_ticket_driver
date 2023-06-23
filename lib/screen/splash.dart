@@ -21,6 +21,8 @@ class splash extends StatefulWidget {
 
 class _splashState extends State<splash> {
   bool? FirstTime = CacheHelper.getData(key: 'firstTime');
+  String? token = CacheHelper.getData(key: 'token');
+  String? id_driver = CacheHelper.getData(key: 'id_driver');
   @override
   void initState() {
     super.initState();
