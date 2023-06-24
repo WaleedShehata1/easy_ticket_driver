@@ -267,9 +267,9 @@ class _UserSettingsScreenState extends State<UserSettingsScreen> {
                                                 key: 'userName');
                                             CacheHelper.clearData(key: 'token');
                                           }
-                                          /*  showToast(
+                                          showToast(
                                               text: 'succeeded',
-                                              state: ToastStates.success); */
+                                              state: ToastStates.success);
                                         });
                                       }).catchError((error) {
                                         print("error= ${error.toString()}");
