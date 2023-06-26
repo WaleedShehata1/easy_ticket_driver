@@ -95,6 +95,9 @@ class Sign_In extends StatelessWidget {
                             label: 'ID',
                             keyboardType: TextInputType.number,
                             validate: (String? value) {
+                              if (value!.trim().isEmpty) {
+                                return 'Please enter your ID';
+                              }
                               return null;
                             },
                             controller: IDController,
@@ -119,6 +122,9 @@ class Sign_In extends StatelessWidget {
                             label: 'Password',
                             keyboardType: TextInputType.text,
                             validate: (String? value) {
+                              if (value!.trim().isEmpty) {
+                                return 'Please enter your Password';
+                              }
                               return null;
                             },
                             controller: PasswordController,
